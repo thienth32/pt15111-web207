@@ -12,8 +12,8 @@
     </div>
     <div>
         <label for="">Giới tính:</label>
-        <input type="radio" checked value="male" (change)="heroItem.gender = 'male'"> Nam
-        <input type="radio" value="female" (change)="heroItem.gender = 'female'"> Nữ
+        <input type="radio" name="gender" checked value="male" (change)="heroItem.gender = 'male'"> Nam
+        <input type="radio" name="gender" value="female" (change)="heroItem.gender = 'female'"> Nữ
     </div>
     <div>
         <button (click)="saveHero()">Lưu</button>
