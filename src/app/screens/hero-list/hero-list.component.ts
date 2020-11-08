@@ -61,11 +61,29 @@ export class HeroListComponent implements OnInit {
 
   saveHero(){
     // nếu id của heroitem = 0 => tạo mới
+    if(this.heroItem.id == 0){
       // tìm id lớn nhất đang có trong danh sách => lấy ra id mới = lớn nhất + 1
+      let maxId = 0;
+      this.heros.forEach(h => {
+        if(h.id > maxId){
+          maxId = h.id
+        }
+      })
+      this.heroItem.id = maxId+1;
+      
       // lưu thông tin của heroitem vào trong mảng heros
-    
+      this.heros.push({...this.heroItem});
+    }
 
     // xóa trắng dữ liệu của biến heroItem
+    this.heroItem = {
+      id: 0,
+      name: "",
+      age: 0,
+      gender: "male",
+      image: "",
+      display: true
+    }
   }
 
   sortByGender(event){
