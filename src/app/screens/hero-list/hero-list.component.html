@@ -9,10 +9,10 @@
             (keyup)="heroItem.name = $event.target.value">
     </div>
     <div>
-        <label for="">Tuổi:</label>
-        <input type="number" placeholder="Tuổi anh hùng" 
-            [value]="heroItem.age" 
-            (keyup)="heroItem.age = $event.target.value">
+        <label for="">Ảnh:</label>
+        <input type="text" placeholder="Ảnh anh hùng" 
+            [value]="heroItem.image" 
+            (keyup)="heroItem.image = $event.target.value">
     </div>
     <div>
         <label for="">Giới tính:</label>
@@ -36,6 +36,8 @@
 </select>
 <ul >
     <ng-container *ngFor="let h of heros">
-        <li *ngIf="h.display==true">{{h.id}} - {{h.name}} - {{ h.gender }}</li>
+        <li *ngIf="h.display==true">{{h.id}} - {{h.name}} - {{ h.gender }} 
+            <a href="javascript:;" (click)="editHero(h)">Sửa</a>
+        </li>
     </ng-container>
 </ul>

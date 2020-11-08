@@ -33,7 +33,6 @@ export class HeroListComponent implements OnInit {
       id: 4,
       name: 'wonder women',
       image: '',
-      spell: ['lighting', 'run', 'strength'],
       gender: 'female',
       display: true
     },
@@ -41,7 +40,6 @@ export class HeroListComponent implements OnInit {
       id: 5,
       name: 'cat women',
       image: '',
-      spell: ['run'],
       gender: 'female',
       display: true
     }
@@ -49,7 +47,6 @@ export class HeroListComponent implements OnInit {
   heroItem = {
     id: 0,
     name: "",
-    age: 0,
     gender: "male",
     image: "",
     display: true
@@ -73,17 +70,30 @@ export class HeroListComponent implements OnInit {
       
       // lưu thông tin của heroitem vào trong mảng heros
       this.heros.push({...this.heroItem});
+    }else {
+      // tìm ra phần phần tử có id = item đang sửa => index của nó trong mảng
+      // sau đó thay thế nó bằng giá trị của heroItem
+      let indexHero = -1;
+      this.heros.forEach((item, index) => {
+        if(item.id == this.heroItem.id){
+          indexHero = index
+        }
+      })
+
+      this.heros[indexHero] = {...this.heroItem};
     }
 
     // xóa trắng dữ liệu của biến heroItem
     this.heroItem = {
       id: 0,
       name: "",
-      age: 0,
       gender: "male",
       image: "",
       display: true
     }
+  }
+  editHero(h){
+    this.heroItem = {...h};
   }
 
   sortByGender(event){
@@ -111,6 +121,5 @@ export class HeroListComponent implements OnInit {
         return hero;
       })
     }
-    console.log(this.heros);
   }
 }
