@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pt15111-web"
+    }
+  },
+  "defaultProject": "pt15111-web",
+  "cli": {
+    "analytics": "efcf00c9-e5a0-4000-aec9-093fb3cc7ea5"
+  }
 }

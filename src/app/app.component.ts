@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // là nơi chứa dữ liệu
   title = 'pt15111-web';
 }
