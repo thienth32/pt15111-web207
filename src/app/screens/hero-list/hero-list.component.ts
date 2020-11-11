@@ -13,6 +13,7 @@ export class HeroListComponent implements OnInit {
       name: 'Ben 10',
       image: '',
       gender: 'male',
+      vote: 0,
       display: true
     },
     {
@@ -20,6 +21,7 @@ export class HeroListComponent implements OnInit {
       name: 'batman',
       image: '',
       gender: 'male',
+      vote: 0,
       display: true
     },
     {
@@ -27,6 +29,7 @@ export class HeroListComponent implements OnInit {
       name: 'wolverine',
       image: '',
       gender: 'male',
+      vote: 0,
       display: true
     },
     {
@@ -34,6 +37,7 @@ export class HeroListComponent implements OnInit {
       name: 'wonder women',
       image: '',
       gender: 'female',
+      vote: 0,
       display: true
     },
     {
@@ -41,6 +45,7 @@ export class HeroListComponent implements OnInit {
       name: 'cat women',
       image: '',
       gender: 'female',
+      vote: 0,
       display: true
     }
   ]
@@ -49,11 +54,17 @@ export class HeroListComponent implements OnInit {
     name: "",
     gender: "male",
     image: "",
+    vote: 0,
     display: true
   }
   constructor() { }
 
   ngOnInit(): void {
+   
+  }
+
+  ngOnChanges(){
+    console.log('ngOnChanges run');
   }
 
   saveHero(){
@@ -89,11 +100,18 @@ export class HeroListComponent implements OnInit {
       name: "",
       gender: "male",
       image: "",
+      vote: 0,
       display: true
     }
   }
   editHero(h){
     this.heroItem = {...h};
+  }
+
+  voteHero(votedHero){
+    // tìm ra thằng hero vừa nhận sự kiện vote
+    // sau đó thay đổi giá trị của thuộc tính vote của nó += 1
+
   }
 
   sortByGender(event){
