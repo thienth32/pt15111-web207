@@ -1,0 +1,32 @@
+<p>login form</p>
+<form [formGroup]="loginForm" (submit)="submitForm()">
+    <div>
+        <label>Email:</label>
+        <input formControlName="identifier">
+        <span style="color: red;" 
+            *ngIf="(loginFormControl.identifier.touched || submit) 
+                            && loginFormControl.identifier.errors?.required">
+            Chưa nhập email
+        </span>
+        <span style="color: red;" 
+            *ngIf="(loginFormControl.identifier.touched || submit) 
+                            && loginFormControl.identifier.errors?.email">
+            Không đúng định dạng email
+        </span>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input formControlName="password">
+        <span style="color: red;" 
+            *ngIf="(loginFormControl.password.touched ) 
+                            && loginFormControl.password.errors?.required">
+            Chưa nhập mật khẩu
+        </span>
+    </div>
+    <div>
+        <button type="submit" [disabled]="!loginForm.valid">Đăng nhập</button>
+    </div>
+</form>
+<div class="">
+
+</div>
