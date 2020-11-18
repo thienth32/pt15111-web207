@@ -8,6 +8,7 @@ import {CategoryService} from '../../_services/category.service';
 export class HomeComponent implements OnInit {
 
   cates = [];
+  newCateName = "";
   constructor(private cateService: CategoryService) { }
 
   ngOnInit(): void {
@@ -22,6 +23,16 @@ export class HomeComponent implements OnInit {
                     });
   }
 
+  addCate(){
+    const data = {
+      name: this.newCateName
+    };
+    this.cateService.addCategory(data)
+                    .subscribe(newItem => {
+                      this.cates.push(newItem);
+                      this.newCateName = "";
+                    });
+  }
   
 
 }
