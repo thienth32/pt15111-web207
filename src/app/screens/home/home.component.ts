@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CategoryService} from '../../_services/category.service'
+import {CategoryService} from '../../_services/category.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,17 +8,20 @@ import {CategoryService} from '../../_services/category.service'
 export class HomeComponent implements OnInit {
 
   cates = [];
-  constructor(private categoryService: CategoryService) { }
+  constructor(private cateService: CategoryService) { }
 
   ngOnInit(): void {
-    this.getCateList();
+    this.getCates();
   }
 
-  getCateList(){
-    this.categoryService.getCategory()
-        .subscribe(data => {
-          this.cates = data;
-        })
+  getCates(){
+    this.cateService.getCategory()
+                    .subscribe(data => {
+                      console.log(data);
+                      this.cates = data;
+                    });
   }
+
+  
 
 }
