@@ -22,6 +22,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService) { 
+      // nếu đã có currentuser ở localstorage rồi thì
+      // điều hướng về trang chủ
+      const currentUser = this.authenticationService.currentUser;
+      if(currentUser){
+        this.router.navigate(['']);
+      }
       this.route.queryParams.subscribe(params => {
         this.redirectToUrl = params['returnUrl'];
       });

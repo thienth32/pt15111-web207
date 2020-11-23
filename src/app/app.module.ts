@@ -14,6 +14,7 @@ import { CateListComponent } from './screens/cate-list/cate-list.component';
 import { ProductDetailComponent } from './screens/product-detail/product-detail.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { from } from 'rxjs';
+import { LogoutComponent } from './screens/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { from } from 'rxjs';
     CateListComponent,
     ProductDetailComponent,
     MenuComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
