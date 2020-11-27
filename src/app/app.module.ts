@@ -15,6 +15,7 @@ import { ProductDetailComponent } from './screens/product-detail/product-detail.
 import { MenuComponent } from './components/menu/menu.component';
 import { from } from 'rxjs';
 import { LogoutComponent } from './screens/logout/logout.component';
+import { InvoiceComponent } from './screens/invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LogoutComponent } from './screens/logout/logout.component';
     ProductDetailComponent,
     MenuComponent,
     LogoutComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,
