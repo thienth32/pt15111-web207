@@ -9,6 +9,11 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="san-pham">Sản phẩm</a>
         </li>
+        <ng-container *ngIf="cates.length > 0">
+          <li class="nav-item active" *ngFor="let c of cates">
+            <a class="nav-link" [routerLink]="['danh-muc', c.id]">{{c.name}}</a>
+          </li>
+        </ng-container>
         <li class="nav-item active">
           <a class="nav-link" routerLink="logout">Đăng Xuất</a>
         </li>

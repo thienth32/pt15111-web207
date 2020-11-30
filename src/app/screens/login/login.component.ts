@@ -12,11 +12,10 @@ import {AuthenticationService}
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  identifier = "";
-  password = "";
+  
   redirectToUrl = "";
   loginForm: FormGroup;
-  // submit = false;
+  submit = false;
   constructor(
     private fb: FormBuilder, 
     private router: Router,
@@ -56,15 +55,18 @@ export class LoginComponent implements OnInit {
   }
 
   loginFormSubmit(){
-    console.log(this.loginForm.valid);
-    // if(this.loginForm.valid){
-    //   this.submit = true;
-    //   this.authenticationService.login(this.loginForm.value.identifier, this.loginForm.value.password)
-    //     .pipe(first())
-    //     .subscribe(data => {
-    //       console.log(data);
-    //     })
-    // }
+    if(this.loginForm.valid){
+      this.submit = true;
+      this.authenticationService.login(this.loginForm.value.identifier, this.loginForm.value.password)
+        .pipe(first())
+        .subscribe(data => {
+          if(data != undefined){
+            this.router.navigate(['/']);
+          }else{
+            alert('Sai tài khoản/mật khẩu');
+          }
+        })
+    }
   }
 
 }
