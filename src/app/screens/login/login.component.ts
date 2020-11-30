@@ -15,10 +15,10 @@ export class LoginComponent implements OnInit {
   identifier = "";
   password = "";
   redirectToUrl = "";
-  // loginForm: FormGroup;
+  loginForm: FormGroup;
   // submit = false;
   constructor(
-    // private fb: FormBuilder, 
+    private fb: FormBuilder, 
     private router: Router,
     private route: ActivatedRoute,
     private authenticationService: AuthenticationService) { 
@@ -34,15 +34,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loginForm = this.fb.group({
-    //   identifier: ['', [ Validators.required, Validators.email ]],
-    //   password: ['', [ Validators.required ]]
-    // });
+    this.loginForm = this.fb.group({
+      identifier: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
   }
 
-  // get loginFormControl(){
-  //   return this.loginForm.controls;
-  // }
+  get loginFormControl(){
+    return this.loginForm.controls;
+  }
 
   ajaxLogin(){
     
@@ -55,15 +55,16 @@ export class LoginComponent implements OnInit {
         })
   }
 
-  // submitForm(){
-  //   if(this.loginForm.valid){
-  //     this.submit = true;
-  //     this.authenticationService.login(this.loginForm.value.identifier, this.loginForm.value.password)
-  //       .pipe(first())
-  //       .subscribe(data => {
-  //         console.log(data);
-  //       })
-  //   }
-  // }
+  loginFormSubmit(){
+    console.log(this.loginForm.valid);
+    // if(this.loginForm.valid){
+    //   this.submit = true;
+    //   this.authenticationService.login(this.loginForm.value.identifier, this.loginForm.value.password)
+    //     .pipe(first())
+    //     .subscribe(data => {
+    //       console.log(data);
+    //     })
+    // }
+  }
 
 }

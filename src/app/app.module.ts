@@ -13,7 +13,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { CateListComponent } from './screens/cate-list/cate-list.component';
 import { ProductDetailComponent } from './screens/product-detail/product-detail.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { from } from 'rxjs';
+
 import { LogoutComponent } from './screens/logout/logout.component';
 import { InvoiceComponent } from './screens/invoice/invoice.component';
 
