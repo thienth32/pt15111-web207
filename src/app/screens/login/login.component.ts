@@ -42,18 +42,7 @@ export class LoginComponent implements OnInit {
   get loginFormControl(){
     return this.loginForm.controls;
   }
-
-  ajaxLogin(){
-    
-    this.authenticationService.login(this.identifier, this.password)
-        .pipe(first())
-        .subscribe(data => {
-          console.log(data);
-          console.log(this.redirectToUrl)
-          this.router.navigate([this.redirectToUrl]);
-        })
-  }
-
+  
   loginFormSubmit(){
     if(this.loginForm.valid){
       this.submit = true;
