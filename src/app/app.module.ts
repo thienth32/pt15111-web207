@@ -16,6 +16,8 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import { LogoutComponent } from './screens/logout/logout.component';
 import { InvoiceComponent } from './screens/invoice/invoice.component';
+import { AdminModule } from './admin/admin.module';
+import { ClientLayoutComponent } from './components/client-layout/client-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { InvoiceComponent } from './screens/invoice/invoice.component';
     MenuComponent,
     LogoutComponent,
     InvoiceComponent,
+    ClientLayoutComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdminModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
